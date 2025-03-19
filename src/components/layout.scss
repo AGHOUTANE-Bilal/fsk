@@ -1,0 +1,329 @@
+// Variables
+$primary-color: #003366; // University blue
+$secondary-color: #f8f9fa;
+$accent-color: #ffc107; // Gold/Yellow
+$text-color: #333;
+$light-text: #fff;
+$font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// Global styles
+body {
+  font-family: $font-family;
+  color: $text-color;
+  line-height: 1.6;
+  background-color: $secondary-color;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: $primary-color;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: darken($primary-color, 10%);
+    text-decoration: underline;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    border-color: darken($primary-color, 10%);
+  }
+}
+
+.btn-accent {
+  background-color: $accent-color;
+  border-color: $accent-color;
+  color: $text-color;
+  
+  &:hover {
+    background-color: darken($accent-color, 10%);
+    border-color: darken($accent-color, 10%);
+    color: $text-color;
+  }
+}
+
+// Section styles
+.section {
+  padding: 4rem 0;
+  
+  &-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: $accent-color;
+      margin: 1rem auto;
+    }
+  }
+}
+
+// Card styles
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  &-title {
+    color: $primary-color;
+    font-weight: 600;
+  }
+  
+  &-date {
+    color: #6c757d;
+    font-size: 0.85rem;
+  }
+}
+
+// Utility classes
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.bg-accent {
+  background-color: $accent-color !important;
+}
+
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-accent {
+  color: $accent-color !important;
+}
+
+.text-light {
+  color: $light-text !important;
+}
+
+// Actualités Carousel
+.actualites-carousel {
+  margin-bottom: 2rem;
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .carousel-control-prev {
+    left: -25px;
+  }
+  
+  .carousel-control-next {
+    right: -25px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-image: none;
+  }
+  
+  .actualite-card-wrapper {
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      padding: 0;
+      z-index: 10;
+      
+      .actualite-card {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  .actualite-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    
+    .card-img-container {
+      overflow: hidden;
+      height: 200px;
+      
+      .card-img {
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+    }
+    
+    &:hover {
+      .card-img {
+        transform: scale(1.1);
+      }
+    }
+    
+    .card-title {
+      font-size: 1.1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+// Featured Events Carousel
+.featured-events-carousel {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-image: none;
+  }
+  
+  .carousel-item {
+    .badge {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    
+    h1 {
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .lead {
+      font-size: 1.2rem;
+      max-width: 80%;
+      margin: 0 auto;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// Navigation
+.navbar {
+  .navbar-brand {
+    img {
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    
+    &.active, &:hover {
+      color: $primary-color;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 1rem;
+        right: 1rem;
+        height: 2px;
+        background-color: $primary-color;
+      }
+    }
+  }
+  
+  .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    .dropdown-item {
+      padding: 0.5rem 1.5rem;
+      
+      &:hover, &:focus, &.active {
+        background-color: rgba($primary-color, 0.1);
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .featured-events-carousel {
+    .carousel-item {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .lead {
+        font-size: 1rem;
+      }
+      
+      .d-flex {
+        flex-direction: column;
+        align-items: center;
+        
+        div {
+          margin-bottom: 0.5rem;
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+  
+  .actualites-carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+    
+    .actualite-card-wrapper {
+      &:hover {
+        padding: 0.5rem;
+        
+        .actualite-card {
+          transform: none;
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,82 @@
+// Custom Bootstrap variables
+$primary: #003366;
+$secondary: #004080;
+$info: #0066cc;
+$light: #f0f5fa;
+$dark: #001a33;
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Additional custom styles
+.bg-primary-gradient {
+  background: linear-gradient(135deg, $primary, $secondary);
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  
+  &:hover, &:focus, &:active {
+    background-color: darken($primary, 10%);
+    border-color: darken($primary, 10%);
+  }
+}
+
+.btn-outline-primary {
+  color: $primary;
+  border-color: $primary;
+  
+  &:hover, &:focus, &:active {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+// Card styles with primary color
+.card {
+  border-color: rgba($primary, 0.1);
+  
+  .card-header {
+    background-color: rgba($primary, 0.05);
+    border-bottom: 1px solid rgba($primary, 0.1);
+  }
+}
+
+// Navigation styles
+.navbar {
+  .navbar-brand {
+    color: $primary;
+  }
+  
+  .nav-link {
+    color: rgba($primary, 0.8);
+    
+    &:hover, &:focus {
+      color: $primary;
+    }
+    
+    &.active {
+      color: $primary;
+      font-weight: 500;
+    }
+  }
+}
+
+// Links
+a {
+  color: $primary;
+  
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  color: $primary;
+} 
