@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button, Breadcrumb, ListGroup } from "react-bootstrap";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const ResearchPage = () => {
