@@ -121,7 +121,7 @@ const IndexPage = () => {
         className="hero-section position-relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${fskColors.gradient.start}, ${fskColors.gradient.end})`,
-          minHeight: "70vh",
+          minHeight: "65vh",
           marginTop: "-2rem",
           paddingBottom: "2rem"
         }}
@@ -131,9 +131,9 @@ const IndexPage = () => {
           className="position-absolute w-100 h-100"
           style={{
             background: `
-              radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 20%),
-              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 20%),
-              linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.02) 49%, rgba(255, 255, 255, 0.02) 51%, transparent 52%) 0 0 / 30px 30px
+              radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 20%),
+              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.04) 0%, transparent 20%),
+              linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.015) 49%, rgba(255, 255, 255, 0.015) 51%, transparent 52%) 0 0 / 40px 40px
             `,
             opacity: 1,
             top: 0,
@@ -143,17 +143,17 @@ const IndexPage = () => {
 
         {/* Particules flottantes */}
         <div className="floating-particles">
-          {[...Array(3)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <div
               key={i}
               className="particle"
               style={{
                 position: "absolute",
-                width: Math.random() * 25 + 10 + "px",
-                height: Math.random() * 25 + 10 + "px",
-                background: "rgba(255, 255, 255, 0.02)",
+                width: Math.random() * 20 + 8 + "px",
+                height: Math.random() * 20 + 8 + "px",
+                background: "rgba(255, 255, 255, 0.015)",
                 borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
-                animation: `float-${i} ${Math.random() * 8 + 12}s infinite linear`,
+                animation: `float-${i} ${Math.random() * 6 + 10}s infinite linear`,
                 top: Math.random() * 100 + "%",
                 left: Math.random() * 100 + "%",
                 zIndex: 1
@@ -163,36 +163,12 @@ const IndexPage = () => {
         </div>
         
         <div className="container position-relative" style={{ zIndex: 2 }}>
-          <div className="row align-items-center" style={{ minHeight: "calc(70vh - 4rem)" }}>
+          <div className="row align-items-center" style={{ minHeight: "calc(65vh - 4rem)" }}>
             <div className="col-lg-7 text-white">
-              {/* Logo ou symbole de la faculté */}
-              <div 
-                className="mb-3 hero-symbol"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  background: "rgba(255, 255, 255, 0.1)",
-                  backdropFilter: "blur(10px)",
-                  borderRadius: "14px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  animation: "fadeInDown 0.8s ease-out"
-                }}
-              >
-                <FontAwesomeIcon 
-                  icon="university" 
-                  style={{ 
-                    fontSize: "1.8rem",
-                    color: "rgba(255, 255, 255, 0.95)"
-                  }} 
-                />
-              </div>
-
               <h1 
-                className="hero-title display-4 fw-bold mb-3"
+                className="hero-title display-4 fw-bold mb-4"
                 style={{
-                  fontSize: "3.2rem",
+                  fontSize: "3rem",
                   letterSpacing: "-0.5px",
                   position: "relative",
                   display: "inline-block"
@@ -202,10 +178,10 @@ const IndexPage = () => {
                   className="d-block hero-text-1"
                   style={{
                     color: '#ffffff',
-                    textShadow: '1px 1px 3px rgba(0,0,0,0.12)',
+                    textShadow: '1px 1px 3px rgba(0,0,0,0.15)',
                     position: 'relative',
                     zIndex: 2,
-                    animation: "slideInLeft 0.8s ease-out"
+                    animation: "slideInLeft 0.6s ease-out"
                   }}
                 >
                   Faculté des Sciences
@@ -214,12 +190,12 @@ const IndexPage = () => {
                   className="d-block hero-text-2"
                   style={{
                     color: '#ffffff',
-                    fontSize: '2.8rem',
+                    fontSize: '2.6rem',
                     opacity: 0.95,
-                    textShadow: '1px 1px 3px rgba(0,0,0,0.12)',
+                    textShadow: '1px 1px 3px rgba(0,0,0,0.15)',
                     position: 'relative',
                     zIndex: 2,
-                    animation: "slideInRight 0.8s ease-out"
+                    animation: "slideInRight 0.6s ease-out"
                   }}
                 >
                   de Kénitra
@@ -227,13 +203,13 @@ const IndexPage = () => {
                 <div 
                   className="position-absolute hero-line"
                   style={{
-                    bottom: "-10px",
+                    bottom: "-8px",
                     left: "0",
-                    width: "100px",
-                    height: "3px",
+                    width: "90px",
+                    height: "2px",
                     background: "linear-gradient(to right, #ffffff, transparent)",
                     borderRadius: "2px",
-                    animation: "expandWidth 1.2s ease-out"
+                    animation: "expandWidth 1s ease-out"
                   }}
                 ></div>
               </h1>
@@ -241,49 +217,41 @@ const IndexPage = () => {
               <p 
                 className="lead mb-4 hero-description" 
                 style={{ 
-                  fontSize: "1.15rem", 
+                  fontSize: "1.1rem", 
+                  lineHeight: "1.6",
+                  color: "rgba(255, 255, 255, 0.9)",
                   maxWidth: "540px",
-                  textShadow: "1px 1px 2px rgba(0,0,0,0.12)",
-                  lineHeight: "1.5",
-                  color: 'rgba(255, 255, 255, 0.95)',
-                  animation: "fadeInUp 0.8s ease-out 0.3s both"
+                  animation: "fadeInUp 0.8s ease-out"
                 }}
               >
-                Excellence académique, innovation et recherche au service du développement durable et du progrès scientifique
+                Un établissement d'excellence dédié à la formation et à la recherche scientifique, 
+                préparant les leaders de demain dans les domaines des sciences et technologies.
               </p>
 
-              <div 
-                className="d-flex gap-3 hero-buttons"
-                style={{
-                  animation: "fadeInUp 0.8s ease-out 0.5s both"
-                }}
-              >
+              <div className="d-flex gap-3" style={{ animation: "fadeInUp 1s ease-out" }}>
                 <Link 
-                  to="/formation" 
-                  className="btn btn-light btn-lg px-4 py-2 hero-btn-primary"
+                  to="/about" 
+                  className="btn btn-light px-4 py-2"
                   style={{
+                    borderRadius: "8px",
                     fontWeight: "500",
-                    boxShadow: "0 3px 10px rgba(0,0,0,0.1)",
-                    borderRadius: "10px",
                     fontSize: "0.95rem",
-                    transition: "all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)",
-                    background: "rgba(255, 255, 255, 0.95)",
-                    backdropFilter: "blur(10px)"
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.1)"
                   }}
                 >
-                  <FontAwesomeIcon icon="book-open" className="me-2" />
-                  Nos formations
+                  <FontAwesomeIcon icon="info-circle" className="me-2" />
+                  En savoir plus
                 </Link>
                 <Link 
                   to="/contact" 
-                  className="btn btn-outline-light btn-lg px-4 py-2 hero-btn-secondary"
+                  className="btn btn-outline-light px-4 py-2"
                   style={{
+                    borderRadius: "8px",
                     fontWeight: "500",
-                    borderRadius: "10px",
                     fontSize: "0.95rem",
-                    borderWidth: "1.5px",
-                    transition: "all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)",
-                    backdropFilter: "blur(10px)"
+                    transition: "all 0.3s ease",
+                    borderWidth: "2px"
                   }}
                 >
                   <FontAwesomeIcon icon="envelope" className="me-2" />
@@ -303,27 +271,20 @@ const IndexPage = () => {
                   padding: "1.25rem",
                   maxHeight: "380px",
                   overflowY: "auto",
-                  boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)"
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.1)"
                 }}
               >
-                <div className="d-flex align-items-center mb-4">
-                  <FontAwesomeIcon 
-                    icon="newspaper" 
-                    className="me-2" 
-                    style={{ color: "rgba(255, 255, 255, 0.9)" }} 
-                  />
-                  <h3 
-                    className="mb-0" 
-                    style={{ 
-                      fontSize: "1.25rem",
-                      color: "rgba(255, 255, 255, 0.9)",
-                      fontWeight: "600"
-                    }}
-                  >
-                    Dernières Actualités
-                  </h3>
-                </div>
+                <h3 
+                  className="h5 mb-3 d-flex align-items-center"
+                  style={{
+                    color: "rgba(255, 255, 255, 0.95)",
+                    fontWeight: "600"
+                  }}
+                >
+                  <FontAwesomeIcon icon="newspaper" className="me-2" />
+                  Dernières Actualités
+                </h3>
 
                 <div className="news-items">
                   {latestActualites.map((actualite, index) => (

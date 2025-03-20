@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div className="container-fluid p-0">
+      <div className="container-fluid p-0" style={{ marginTop: "32px" }}>
         <main>{children}</main>
         <Footer siteTitle={data.site.siteMetadata?.title || `Title`} />
       </div>

@@ -175,7 +175,9 @@ const ConseilPage = () => {
                       transition: 'all 0.3s ease',
                       backgroundColor: activeTab === 'direction' ? fskColors.primary : 'transparent',
                       color: activeTab === 'direction' ? 'white' : fskColors.primary,
-                      borderColor: fskColors.primary
+                      border: 'none',
+                      margin: '0 2px',
+                      fontWeight: '500'
                     }}
                   >
                     <FontAwesomeIcon icon="user-tie" className="me-2" />Direction
@@ -189,7 +191,9 @@ const ConseilPage = () => {
                       transition: 'all 0.3s ease',
                       backgroundColor: activeTab === 'professors' ? fskColors.primary : 'transparent',
                       color: activeTab === 'professors' ? 'white' : fskColors.primary,
-                      borderColor: fskColors.primary
+                      border: 'none',
+                      margin: '0 2px',
+                      fontWeight: '500'
                     }}
                   >
                     <FontAwesomeIcon icon="graduation-cap" className="me-2" />Corps Professoral
@@ -203,7 +207,9 @@ const ConseilPage = () => {
                       transition: 'all 0.3s ease',
                       backgroundColor: activeTab === 'commissions' ? fskColors.primary : 'transparent',
                       color: activeTab === 'commissions' ? 'white' : fskColors.primary,
-                      borderColor: fskColors.primary
+                      border: 'none',
+                      margin: '0 2px',
+                      fontWeight: '500'
                     }}
                   >
                     <FontAwesomeIcon icon="users-cog" className="me-2" />Commissions
@@ -446,7 +452,7 @@ const ConseilPage = () => {
                                 <span className="fw-semibold">{prof}</span>
                               </li>
                             ))}
-            </ul>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -479,7 +485,7 @@ const ConseilPage = () => {
                                 <span className="fw-semibold">{prof}</span>
                               </li>
                             ))}
-            </ul>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -654,9 +660,11 @@ const ConseilPage = () => {
           box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
         }
         .nav-link {
-          border: 1px solid ${fskColors.primary};
-          margin: 0 5px;
-          border-radius: 30px;
+          border: none;
+          margin: 0 2px;
+          padding: 0.75rem 1.5rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
         }
         .nav-link:hover {
           background-color: ${fskColors.light} !important;
