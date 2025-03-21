@@ -301,7 +301,7 @@ const ConseilPage = () => {
                       <p className="text-muted mb-4">Les chefs de départements sont responsables de la coordination des activités pédagogiques et scientifiques au sein de leurs unités respectives.</p>
                       <div className="row">
                         {[
-                          "Pr. EL WAHBI Bouazza",
+                          "Pr. MANSOURI Mohammed Wadia",
                           "Pr. FAKHRI Youssef",
                           "Pr. CHAKIR El Mahjoub",
                           "Pr. OUHSSINE Mohammed",

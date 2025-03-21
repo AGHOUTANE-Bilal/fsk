@@ -99,21 +99,61 @@ const quickLinks = [
   },
   {
     title: "Étudiants",
-    description: "Ressources et informations pour la vie étudiante",
-    icon: "users",
+    description: "Informations et services pour nos étudiants",
+    icon: "user-graduate",
     link: "/etudiants",
-    color: "#e74c3c"
-  },
-  {
-    title: "International",
-    description: "Nos partenariats et programmes d'échange",
-    icon: "globe",
-    link: "/international",
     color: "#9b59b6"
   }
 ];
 
+const facultyHighlights = [
+  {
+    title: "Excellence Académique",
+    description: "Une formation de qualité dispensée par des professeurs hautement qualifiés dans divers domaines scientifiques.",
+    icon: "medal",
+    color: "#4361ee"
+  },
+  {
+    title: "Recherche Innovante",
+    description: "Des laboratoires bien équipés pour conduire des recherches de pointe dans des domaines scientifiques variés.",
+    icon: "microscope",
+    color: "#3a0ca3"
+  },
+  {
+    title: "Parcours Internationaux",
+    description: "Des partenariats avec des universités internationales offrant des opportunités d'échanges et de mobilité.",
+    icon: "globe-europe",
+    color: "#4895ef"
+  },
+  {
+    title: "Insertion Professionnelle",
+    description: "Des formations alignées avec les besoins du marché du travail et un réseau d'entreprises partenaires.",
+    icon: "briefcase",
+    color: "#560bad"
+  }
+];
+
+const departments = [
+  { name: "Mathématiques", icon: "square-root-alt", color: "#3498db" },
+  { name: "Informatique", icon: "laptop-code", color: "#2ecc71" },
+  { name: "Physique", icon: "atom", color: "#9b59b6" },
+  { name: "Chimie", icon: "flask", color: "#e74c3c" },
+  { name: "Biologie", icon: "dna", color: "#1abc9c" },
+  { name: "Géologie", icon: "mountain", color: "#d35400" },
+  { name: "Sciences Économiques", icon: "chart-line", color: "#f39c12" }
+];
+
 const IndexPage = () => {
+  const [hoveredIndex, setHoveredIndex] = React.useState(null);
+
+  // Animation for feature cards
+  const featureAnimProps = {
+    from: { opacity: 0, transform: 'translateY(30px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: { mass: 1, tension: 280, friction: 60 },
+    delay: 200
+  };
+
   return (
     <Layout>
       {/* Hero Section avec effets améliorés */}
@@ -376,6 +416,192 @@ const IndexPage = () => {
         </div>
       </div>
 
+      {/* Information Sections */}
+      <div className="container py-5">
+        {/* Information essentielles section removed */}
+        
+        {/* Modern Feature Section with CSS animations */}
+        <div className="feature-section py-5">
+          <div className="text-center mb-5">
+            <h2 className="display-5 fw-bold mb-3">Pourquoi Choisir Notre Faculté ?</h2>
+            <div className="separator-center mb-4"></div>
+            <p className="lead col-lg-8 mx-auto">
+              La Faculté des Sciences de Kénitra offre un environnement d'apprentissage 
+              stimulant et des opportunités uniques pour votre réussite académique et professionnelle.
+            </p>
+          </div>
+          
+          <div className="features-container animate-fade-up">
+            <div className="row g-4 py-4">
+              {facultyHighlights.map((feature, index) => (
+                <div key={index} className="col-md-6 col-lg-3 mb-4 animate-slide-up" style={{animationDelay: `${index * 100}ms`}}>
+                  <div 
+                    className="card h-100 border-0 feature-card"
+                    style={{ 
+                      borderRadius: "16px",
+                      boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
+                      overflow: "hidden",
+                      transition: "all 0.4s ease"
+                    }}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    <div 
+                      className="card-body p-4"
+                      style={{
+                        background: hoveredIndex === index 
+                          ? `linear-gradient(135deg, ${feature.color}05, ${feature.color}15)` 
+                          : "white"
+                      }}
+                    >
+                      <div 
+                        className="feature-icon-container mb-4"
+                        style={{
+                          background: `linear-gradient(135deg, ${feature.color}, ${feature.color}cc)`,
+                          width: "60px",
+                          height: "60px",
+                          borderRadius: "12px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "white",
+                          boxShadow: `0 10px 15px ${feature.color}33`,
+                          transform: hoveredIndex === index ? "translateY(-5px) rotate(5deg)" : "none",
+                          transition: "all 0.4s ease"
+                        }}
+                      >
+                        <FontAwesomeIcon icon={feature.icon} size="lg" />
+                      </div>
+                      
+                      <h3 
+                        className="h5 mb-3 fw-bold"
+                        style={{ 
+                          color: feature.color,
+                          transition: "all 0.3s ease"
+                        }}
+                      >
+                        {feature.title}
+                      </h3>
+                      
+                      <p 
+                        className="mb-3" 
+                        style={{ 
+                          color: "#4b5563",
+                          fontSize: "0.95rem",
+                          lineHeight: "1.6"
+                        }}
+                      >
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Departments Section */}
+          <div className="animate-fade-up" style={{animationDelay: "400ms"}}>
+            <div className="departments-section py-5 mt-4">
+              <div className="text-center mb-5">
+                <h2 className="h3 fw-bold">Nos Départements</h2>
+                <div className="separator-center mb-4"></div>
+                <p className="col-lg-8 mx-auto">
+                  La faculté est organisée en départements spécialisés couvrant l'ensemble des disciplines scientifiques
+                </p>
+              </div>
+              
+              <div className="row justify-content-center">
+                <div className="col-lg-10">
+                  <div className="d-flex justify-content-center flex-wrap gap-3">
+                    {departments.map((dept, index) => (
+                      <Link 
+                        key={index} 
+                        to={`/departements/${dept.name.toLowerCase()}`}
+                        className="text-decoration-none department-link"
+                        style={{animationDelay: `${index * 50}ms`}}
+                      >
+                        <div 
+                          className="department-chip d-flex align-items-center gap-2 px-4 py-2"
+                          style={{
+                            background: `linear-gradient(135deg, ${dept.color}10, ${dept.color}20)`,
+                            border: `1px solid ${dept.color}20`,
+                            borderRadius: "50px",
+                            color: dept.color,
+                            fontWeight: "500",
+                            transition: "all 0.3s ease",
+                            boxShadow: "0 4px 10px rgba(0,0,0,0.03)"
+                          }}
+                        >
+                          <FontAwesomeIcon icon={dept.icon} />
+                          <span>{dept.name}</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Key Statistics */}
+        <div className="row py-5 mb-5 bg-light rounded-3">
+          <div className="col-12 text-center mb-4">
+            <h2 className="mb-3">La Faculté des Sciences en chiffres</h2>
+            <div className="separator-center mb-4"></div>
+            <p className="lead mb-5">Découvrez notre faculté à travers quelques chiffres clés</p>
+          </div>
+          
+          <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div className="stat-card text-center">
+              <div className="stat-icon-container mx-auto mb-3">
+                <FontAwesomeIcon icon="users" />
+              </div>
+              <h3 className="stat-number">5200+</h3>
+              <p className="stat-title">Étudiants</p>
+            </div>
+          </div>
+          
+          <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div className="stat-card text-center">
+              <div className="stat-icon-container mx-auto mb-3">
+                <FontAwesomeIcon icon="chalkboard-teacher" />
+              </div>
+              <h3 className="stat-number">220</h3>
+              <p className="stat-title">Enseignants-chercheurs</p>
+            </div>
+          </div>
+          
+          <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div className="stat-card text-center">
+              <div className="stat-icon-container mx-auto mb-3">
+                <FontAwesomeIcon icon="microscope" />
+              </div>
+              <h3 className="stat-number">7</h3>
+              <p className="stat-title">Départements</p>
+            </div>
+          </div>
+          
+          <div className="col-lg-3 col-md-6">
+            <div className="stat-card text-center">
+              <div className="stat-icon-container mx-auto mb-3">
+                <FontAwesomeIcon icon="flask" />
+              </div>
+              <h3 className="stat-number">15</h3>
+              <p className="stat-title">Laboratoires de recherche</p>
+            </div>
+          </div>
+          
+          <div className="col-12 text-center mt-4">
+            <Link to="/about/chiffres" className="btn btn-outline-primary">
+              Voir tous les chiffres
+              <FontAwesomeIcon icon="arrow-right" className="ms-2" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="container position-relative" style={{ marginTop: "2rem" }}>
         {/* Quick Links Section avec effet de survol amélioré */}
         <div className="py-5">
@@ -431,78 +657,6 @@ const IndexPage = () => {
               </Col>
             ))}
           </Row>
-              </div>
-
-        {/* Stats Section avec animation au défilement */}
-        <div className="py-5 my-4">
-          <div 
-            className="card border-0 overflow-hidden position-relative"
-                              style={{ 
-              borderRadius: "20px",
-              background: "linear-gradient(135deg, #f8f9fa, #ffffff)",
-              boxShadow: "0 15px 35px rgba(0,0,0,0.05)"
-            }}
-          >
-            <div 
-              className="position-absolute"
-              style={{
-                              top: 0,
-                left: 0,
-                              right: 0,
-                height: "5px",
-                background: `linear-gradient(to right, ${fskColors.gradient.start}, ${fskColors.gradient.end})`
-              }}
-            ></div>
-            
-            <div className="card-body p-5">
-              <Row className="text-center g-4">
-                <Col md={3}>
-                  <div className="stat-item">
-                    <div 
-                      className="display-4 fw-bold mb-2"
-                      style={{ color: fskColors.primary }}
-                    >
-                      12K+
-                    </div>
-                    <div className="text-muted">Étudiants</div>
-                  </div>
-                </Col>
-                <Col md={3}>
-                  <div className="stat-item">
-                    <div 
-                      className="display-4 fw-bold mb-2"
-                      style={{ color: fskColors.primary }}
-                    >
-                      300+
-                    </div>
-                    <div className="text-muted">Enseignants-chercheurs</div>
-                  </div>
-                </Col>
-                <Col md={3}>
-                  <div className="stat-item">
-                    <div 
-                      className="display-4 fw-bold mb-2"
-                      style={{ color: fskColors.primary }}
-                    >
-                      25+
-                    </div>
-                    <div className="text-muted">Laboratoires</div>
-                  </div>
-                </Col>
-                <Col md={3}>
-                  <div className="stat-item">
-                    <div 
-                      className="display-4 fw-bold mb-2"
-                      style={{ color: fskColors.primary }}
-                    >
-                      50+
-                    </div>
-                    <div className="text-muted">Partenariats</div>
-                  </div>
-                </Col>
-              </Row>
-            </div>
-          </div>
         </div>
 
         {/* Actualités Section */}
@@ -912,6 +1066,120 @@ const IndexPage = () => {
         .news-item:hover {
           background: rgba(255, 255, 255, 0.08) !important;
           transform: translateX(4px);
+        }
+
+        .separator-center {
+          width: 70px;
+          height: 3px;
+          background: ${fskColors.primary};
+          margin: 0 auto;
+        }
+        
+        .info-icon-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-color: ${fskColors.primary};
+          color: white;
+        }
+        
+        .hover-card {
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hover-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .stat-icon-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          background-color: ${fskColors.primary};
+          color: white;
+          font-size: 1.8rem;
+          margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: ${fskColors.primary};
+          margin-bottom: 0.5rem;
+        }
+        
+        .stat-title {
+          font-size: 1.1rem;
+          color: #555;
+        }
+        
+        .card-header {
+          border-bottom: none;
+        }
+        
+        @media (max-width: 992px) {
+          .stat-number {
+            font-size: 2rem;
+          }
+        }
+
+        /* Animation classes */
+        .animate-fade-up {
+          opacity: 0;
+          animation: fadeUp 0.8s ease forwards;
+        }
+        
+        .animate-slide-up {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: slideUp 0.8s ease forwards;
+        }
+        
+        .department-link {
+          opacity: 0;
+          transform: translateY(10px);
+          animation: slideUp 0.5s ease forwards;
+        }
+        
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slideUp {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        /* Feature card effects */
+        .feature-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Department chip effects */
+        .department-chip:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 15px rgba(0,0,0,0.08);
         }
       `}</style>
     </Layout>

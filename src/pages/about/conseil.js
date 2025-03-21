@@ -182,7 +182,7 @@ const ConseilPage = () => {
                       </div>
                       <div className="card-body">
                         <ul className="list-group list-group-flush">
-                          <li className="list-group-item px-0">Pr. EL WAHBI Bouazza</li>
+                          <li className="list-group-item px-0">Pr. MANSOURI Mohammed Wadia</li>
                           <li className="list-group-item px-0">Pr. FAKHRI Youssef</li>
                           <li className="list-group-item px-0">Pr. CHAKIR El Mahjoub</li>
                           <li className="list-group-item px-0">Pr. OUHSSINE Mohammed</li>

@@ -88,7 +88,7 @@ const OrganisationPage = () => {
           ]
         },
         {
-          name: "Mr. OUBASSOU M'Barek",
+          name: "",
           title: "Secrétaire Générale",
           icon: "briefcase",
           color: "#0056b3",
